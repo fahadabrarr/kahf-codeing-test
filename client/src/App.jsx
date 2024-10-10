@@ -1,7 +1,10 @@
+import Header from "./components/Header";
+import Body from "./components/body";
 function App() {
   return (
-    <div className="flex text-center h-svh items-center justify-center">
-      <p>cahf codeing test</p>
+    <div className="flex flex-col text-center items-center justify-center">
+      <Header />
+      <Body />
     </div>
   );
 }
