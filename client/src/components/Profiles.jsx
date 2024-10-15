@@ -3,7 +3,7 @@ import { RxImage } from "react-icons/rx";
 
 const Profiles = () => {
   return (
-    <div>
+    <div className="w-full">
       <p className=" text-center md:text-left font-bold text-black/70 text-2xl pt-10">
         Profiel Details
       </p>

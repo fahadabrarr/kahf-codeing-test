@@ -2,7 +2,7 @@ import { FaLink } from "react-icons/fa6";
 
 const Links = () => {
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-3 w-full">
       <p className="text-2xl font-bold text-center md:text-left text-black/70 mt-10">
         Customizw your links
       </p>

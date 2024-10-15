@@ -1,10 +1,16 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import PreviewPage from "./pages/PreviewPage";
+
 import Header from "./components/Header";
-import Body from "./components/body";
 function App() {
   return (
-    <div className="flex flex-col text-center items-center justify-center">
+    <div>
       <Header />
-      <Body />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/preview" element={<PreviewPage />} />
+      </Routes>
     </div>
   );
 }

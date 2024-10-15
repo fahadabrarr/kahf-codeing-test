@@ -2,8 +2,14 @@ import React from "react";
 import { FaLink } from "react-icons/fa6";
 import { RxAvatar } from "react-icons/rx";
 import { GrFormView } from "react-icons/gr";
+import { Link } from "react-router-dom";
+
+import { setNavbar } from "../redux/NavReducer";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="w-full h-20 bg-[#FFFFFF]">
       <div className="flex flex-row max-w-screen-2xl mx-auto px-5 py-3 items-center justify-around gap-3 w-full h-full">
@@ -13,7 +19,7 @@ const Header = () => {
           </span>
 
           <span className="font-extrabold text-black/55 opacity-90 hidden sm:inline-flex">
-            devlinks
+            <Link to="/">devlinks</Link>
           </span>
         </div>
         <div className="flex gap-1 sm:gap-6  items-center justify-center">
@@ -22,7 +28,10 @@ const Header = () => {
               <RxAvatar className={"font-extrabold"} />
             </span>
 
-            <span className="font-extrabold text-black/55 hidden sm:inline-flex">
+            <span
+              onClick={() => dispatch(setNavbar("profile"))}
+              className="font-extrabold text-black/55 hidden sm:inline-flex"
+            >
               Profile
             </span>
           </p>
@@ -30,7 +39,12 @@ const Header = () => {
             <span className="border-[1px] border-[#685CA7] rounded-md h-7 w-8 items-center justify-center flex sm:border-none">
               <FaLink className={"font-extrabold rounded-md"} />
             </span>
-            <span className="hidden sm:inline-flex"> Link</span>
+            <span
+              onClick={() => dispatch(setNavbar("link"))}
+              className="hidden sm:inline-flex"
+            >
+              Link
+            </span>
           </p>
         </div>
         <div className=" flex gap-1 px-3 py-2 rounded-lg  border-[#685CA7] cursor-pointer font-extrabold hover:bg-[#EFECFF] shadow-sm text-black/55 hover:text-[#7D63EF] text-shad items-center justify-center">
@@ -41,7 +55,9 @@ const Header = () => {
               }
             />
           </span>
-          <span className="hidden sm:inline-flex"> Preview</span>
+          <span className="hidden sm:inline-flex">
+            <Link to="/preview">Preview</Link>
+          </span>
         </div>
       </div>
     </div>
