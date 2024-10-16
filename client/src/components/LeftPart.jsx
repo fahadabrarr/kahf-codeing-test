@@ -2,7 +2,6 @@ import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { AiFillYoutube } from "react-icons/ai";
 import { FaLinkedin } from "react-icons/fa6";
-
 import { FaGithub } from "react-icons/fa6";
 
 const LeftPart = () => {

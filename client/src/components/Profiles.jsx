@@ -1,7 +1,27 @@
 import React from "react";
 import { RxImage } from "react-icons/rx";
+import { useState } from "react";
 
 const Profiles = () => {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    avatar: "",
+  });
+
+  const handleInput = (e) => {
+    let value = e.target.value;
+    let name = e.target.name;
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
   return (
     <div className="w-full">
       <p className=" text-center md:text-left font-bold text-black/70 text-2xl pt-10">
@@ -28,9 +48,11 @@ const Profiles = () => {
               className="absolute h-full w-full rounded-lg text-white z-30 flex flex-col items-center justify-center bg-black bg-opacity-75 cursor-pointer"
             >
               <input
+                onChange={handleInput}
                 type="file"
                 id="avatar"
                 name="avatar"
+                value={user.avatar}
                 accept="image/png, image/jpeg"
                 className="opacity-0 w-full h-full"
               />
@@ -53,7 +75,10 @@ const Profiles = () => {
         <div className="flex w-full py-1 items-center justify-center px-5 ">
           <p className="text-start w-[40%] text-black/50">First Name</p>
           <input
+            onChange={handleInput}
             type="text"
+            name="firstName"
+            value={user.firstName}
             placeholder="Ben"
             className="w-full border border-black/5 shadow-sm px-5 py-2 rounded-lg outline-none"
           />
@@ -61,7 +86,10 @@ const Profiles = () => {
         <div className="flex w-full py-1 items-center justify-center px-5">
           <p className="text-start w-[40%] text-black/50">Last Name</p>
           <input
+            onChange={handleInput}
             type="text"
+            name="lastName"
+            value={user.lastName}
             placeholder="Stock"
             className="w-full border border-black/5 shadow-sm px-5 py-2 rounded-lg outline-none"
           />
@@ -69,7 +97,10 @@ const Profiles = () => {
         <div className="flex w-full py-1 items-center justify-center px-5">
           <p className="text-start w-[40%] text-black/50">Email</p>
           <input
+            onChange={handleInput}
             type="email"
+            name="email"
+            value={user.email}
             placeholder="benstock@gmail.com"
             className="w-full border border-black/5 shadow-sm px-5 py-2 rounded-lg outline-none"
           />
@@ -79,7 +110,11 @@ const Profiles = () => {
       <hr className="border-black/5 border w-full mt-10 " />
 
       <div className="flex items-center justify-center md:justify-end px-6 py-5">
-        <button className="px-8 py-2 rounded-md bg-[#614BC8] text-white/85">
+        <button
+          onClick={handleSubmit}
+          type="submit"
+          className="px-8 py-2 rounded-md bg-[#614BC8] text-white/85"
+        >
           Save
         </button>
       </div>

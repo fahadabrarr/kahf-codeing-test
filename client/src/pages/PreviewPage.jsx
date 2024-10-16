@@ -2,7 +2,7 @@ import Preview from "../components/Preview";
 
 const PreviewPage = () => {
   return (
-    <div>
+    <div className="w-full md:min-h-svh">
       <Preview />
     </div>
   );
